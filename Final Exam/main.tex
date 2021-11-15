@@ -1,0 +1,154 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you open the
+% 'Share' menu, you can invite other users to edit at the same
+% time. See www.overleaf.com/learn for more info. Enjoy!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt,titlepage]{article}		% The percent symbol in your code starts a comment.  The comment ends at the next linebreak.
+
+\usepackage[english]{babel} 		% Packages add functionality and style conventions to your documents. Don't edit this section!
+\usepackage{fullpage}				% Eliminates wasted space
+\usepackage[utf8]{inputenc}			% Necessary for character encoding
+\usepackage{amsmath, amssymb,amsthm}% Required math packages
+\usepackage{graphicx}				% For handling graphics
+\usepackage[colorinlistoftodos]{todonotes}	% For the fancy "todo" stuff
+\usepackage{hyperref}				% For clickable links in the final PDF
+%\usepackage{titling}				% To take less space at the top of the page with the title
+%\setlength{\droptitle}{-2cm}
+%\pretitle{\Large\scshape}%{\begin{flushright}\Large\scshape}
+%\posttitle{\par\end{flushright}}
+%\preauthor{\large\scshape}
+%\postauthor{\par\end{flushright}}
+%\predate{\large\scshape}
+%\postdate{\par\end{flushright}}
+\linespread{1.5}
+
+\newcommand{\set}[1]{\left\{ {#1} \right\}}
+\newcommand{\setof}[2]{{\left\{#1\,\colon\,#2\right\}}}
+
+
+% Type `\C' for the complex numbers, `\H' for the quarternions, etc.
+\def\C{{\mathbb C}}
+\def\H{{\mathbb H}}
+\def\Z{{\mathbb Z}}
+\def\Q{{\mathbb Q}}
+\def\R{{\mathbb R}}
+\def\N{{\mathbb N}}
+
+
+%\Alpha{homeworkresults}
+
+\newtheorem{theorem}{Theorem}
+\renewcommand*{\thetheorem}{\Roman{theorem}}
+%\setcounter{theorem}{2}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{theorem}
+
+
+
+
+\title{\sc Math 212 Final Exam}
+
+\author{Kenyon Geetings}
+
+\date{Draft date: \today}
+
+\begin{document}
+
+\maketitle
+
+
+
+\clearpage
+
+\begin{conjecture}
+	Use methods from class to find a closed form for the sequence
+	\begin{align*}
+    4,4,10,28,64,124,214,340,508,724,...
+    \end{align*}
+\end{conjecture}
+
+\begin{proof}
+To find a closed form for the sequence, we can first find what degree we get a common difference. If we assume the first term is $a_0$, we can create a chart.
+
+\begin{displaymath}
+\begin{array}{c | c | c | c}
+a_{n} & \Delta _{1} & \Delta _{2} & \Delta _{3} \\
+\hline
+4 & 0 & 6 & 6\\
+4 & 6 & 12 & 6\\
+10 & 18 & 18 & 6\\
+28 & 36 & 24 & 6\\
+64 & 60 & 30 & 6\\
+124 &90 & 36 & 6\\
+214 & 126 & 42 & 6\\
+340 & 168 & 48 & -\\
+508 & 216 & -& -\\
+724 & - &-  &- 
+\end{array}
+\end{displaymath}
+From the table, we can see this is a degree-3 polynomial, so it will follow the form $a_n = an^3 + bn^2 + cn + d$. To solve, we plug in known values of $a_n$ and solve the system of equations.
+
+\begin{align*}
+a_n &= an^3 + bn^2 + cn + d\\
+a_0 = 4 &= a\cdot0 + b\cdot0 + c\cdot0 + d\\
+\end{align*}
+From this equation we see that $d=4$.
+\begin{align*}
+a_1 = 4 &= a + b + c + 4\\
+a_2 = 10 &= 8a + 4b + 2c + 4\\
+a_3 = 28 &= 27a + 9b + 3c + 4\\
+\end{align*}
+After solving the system of equations, we find that $a=1,b=0,c=-1,d=4$. Thus, our closed form equation is $a_n = n^3 -n + 4$.
+\end{proof}
+
+
+
+
+
+\clearpage
+\begin{conjecture}
+Let $A_1,A_2,...,A_n$ be sets where $n \ge 2$. Suppose for any two sets $A_i$ and $A_j$ that either $A_i \subseteq A_j$ or $A_j \subseteq A_i$. Prove by induction that one of these $n$ sets is a subset of all of them.
+\end{conjecture}
+\begin{proof}
+By Induction. Let $P(n)$ be the statement for $A_1,A_2,...,A_n$, for two sets $A_i,A_j$, $A_i \subseteq A_j$ or $A_j \subseteq A_i$.
+
+Base Case: When $n = 2$, we have the sets $A_1, A_2$. Thus, either $A_1 \subseteq A_2$ or $A_2 \subseteq A_1$. Therefore, one of these sets is a subset of all other sets.
+
+Inductive Hypothesis: Assume $P(k)$ is true for all $k \ge 2$, which means we have
+\begin{align*}
+A_1,A_2,...,A_k.
+\end{align*}
+
+Inductive Step: We can then consider $P(k+1)$ which results in $A_{k+1}$
+\begin{align*}
+A_1,A_2,...,A_k,A_{k+1}.
+\end{align*}
+By our base case, we know that for the first $k$ elements, one of them will be the subset of all other sets, which we can call set $A_a$. Thus, we are left with 2 sets: $A_a$ and $A_{k+1}$. By our definition, one of these sets must be the subset of the other, meaning that $A_a$ is subset to all other sets, or $A_{k+1}$ is subset to all other sets.
+
+Therefore, since $P(k)$ is true for all $k \ge 2$, we see that $P(n)$ is true for all $n \ge 2$.
+
+\end{proof}
+
+
+
+
+
+
+\clearpage
+\begin{conjecture}
+    Let $T$ be a tree with at least two vertices and let $v$ be a vertex of $T$. Let $T \setminus v$ denote the graph obtained from $T$ by deleting $v$ and any edges incident to $v$. If $T \setminus v$ is a tree, prove that $v$ is a leaf.
+\end{conjecture}
+\begin{proof}
+Assume that we have a graph that is a tree with at least two vertices $a,b$. Then between those vertices $a,b$ there is only one unique path, given by Proposition 13.2.1. This also means that if we remove a vertex that has a degree greater than 1, then we will also remove at least two edges, which means we remove a path between at least one pair of vertices. Thus, if $T$ is a tree, and $T\setminus v$ must be a tree, then $v$ must not break any paths, since doing so would make $T\setminus v$ a forest. Therefore, since the loss of $v$ must not remove any other vertices from the tree, then $v$ must have only one incident edge, meaning that it is a leaf, given by Proposition 13.2.3.
+\end{proof}
+
+\end{document}

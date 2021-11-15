@@ -1,0 +1,470 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you open the
+% 'Share' menu, you can invite other users to edit at the same
+% time. See www.overleaf.com/learn for more info. Enjoy!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt,titlepage]{article}		% The percent symbol in your code starts a comment.  The comment ends at the next linebreak.
+
+\usepackage[english]{babel} 		% Packages add functionality and style conventions to your documents. Don't edit this section!
+\usepackage{fullpage}				% Eliminates wasted space
+\usepackage[utf8]{inputenc}			% Necessary for character encoding
+\usepackage{amsmath, amssymb,amsthm}% Required math packages
+\usepackage{graphicx}				% For handling graphics
+\usepackage[colorinlistoftodos]{todonotes}	% For the fancy "todo" stuff
+\usepackage{hyperref}				% For clickable links in the final PDF
+%\usepackage{titling}				% To take less space at the top of the page with the title
+%\setlength{\droptitle}{-2cm}
+%\pretitle{\Large\scshape}%{\begin{flushright}\Large\scshape}
+%\posttitle{\par\end{flushright}}
+%\preauthor{\large\scshape}
+%\postauthor{\par\end{flushright}}
+%\predate{\large\scshape}
+%\postdate{\par\end{flushright}}
+\linespread{1.5}
+
+\newcommand{\set}[1]{\left\{ {#1} \right\}}
+\newcommand{\setof}[2]{{\left\{#1\,\colon\,#2\right\}}}
+
+\def\rubric{\textbf{Evaluation:} \makebox[0.75in]{\hrulefill}
+
+\vspace{.3in}
+
+\textbf{Opening:} \makebox[0.75in]{\hrulefill}
+
+\vspace{.3in}
+
+\textbf{Logical Correctness:} \makebox[0.75in]{\hrulefill}
+
+\vspace{.3in}
+
+\textbf{Reasons:} \makebox[0.75in]{\hrulefill}
+
+\vspace{.3in}
+
+\textbf{Use of Notation:} \makebox[0.75in]{\hrulefill}
+
+\vspace{.3in}
+
+\textbf{Clarity and Writing:} \makebox[0.75in]{\hrulefill}
+
+\vspace{.3in}
+
+\textbf{\LaTeX\ Formatting:} \makebox[0.75in]{\hrulefill}
+
+\vspace{.3in}
+
+\textbf{Stating the Conclusion:} \makebox[0.75in]{\hrulefill}
+
+\vspace{.3in}
+
+\textbf{Other Comments:}
+
+\vspace{1in}
+
+}
+
+% Type `\C' for the complex numbers, `\H' for the quarternions, etc.
+\def\C{{\mathbb C}}
+\def\H{{\mathbb H}}
+\def\Z{{\mathbb Z}}
+\def\Q{{\mathbb Q}}
+\def\R{{\mathbb R}}
+\def\N{{\mathbb N}}
+
+
+%\Alpha{homeworkresults}
+
+\newtheorem{theorem}{Theorem}
+\renewcommand*{\thetheorem}{\Roman{theorem}}
+%\setcounter{theorem}{2}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{theorem}
+
+
+
+
+\title{\sc Math 212 Portfolio}
+
+\author{Kenyon Geetings}
+
+\date{Draft date: \today}
+
+\begin{document}
+
+\maketitle
+
+
+\noindent\textbf{Changelog:} \emph{List the changes you've made since the last draft, with special attention paid to problems that have received significant revisions since the last draft (i.e., more than fixing typos). If there is any additional information you'd like me to consider as I review this submission, please say so now.}
+\begin{enumerate}
+    \item Reworked Conjectures VI, VII, VIII, and IX.
+
+\end{enumerate}
+\noindent\textbf{Instructions:} Each of the problems below is/will be presented as a conjecture. Each conjecture asks you to prove or disprove the conjecture, possibly along with some additional directions. 
+
+\bigskip
+
+\begin{itemize}  
+	\item If the conjecture is true, your job is to write a complete proof for the proposition. If there are multiple parts, you should consider each part in turn.
+	\item If it is false, you should provide a counterexample plus make reasonable modifications to the stated conjecture so that a new proposition is true. Then, write a complete proof of your new proposition. You may want to run your new proposition by me before trying to write a proof--this is allowed and encouraged!
+\end{itemize}
+
+
+\noindent\textbf{Academic Honesty Policy:}
+The portfolio is an independent project in which no outside resources or collaboration is allowed. You may not ask other professors or discuss the problems with anyone besides me. You should not discuss even which problem you chose. Violation of this policy is grounds for failing the course. The point is that you need to be confident and competent in writing proofs for future courses.
+
+
+
+
+
+
+\clearpage
+
+\begin{conjecture}
+	Let $A$ and $B$ be subsets of some universe $\mathcal{U}$.
+	Then:
+	\begin{enumerate}
+		\item $A\setminus (A\cap \overline{B}) = A\cap B$
+		\item $\overline{(\overline{A}\cup B)} \cap A = A\setminus B$
+		\item $(A\cup B)\setminus A = B\setminus A$
+		\item $(A\cup B) \setminus B = A\setminus (A\cap B)$
+	\end{enumerate}
+\end{conjecture}
+
+\begin{proof}
+
+\begin{enumerate}
+    \item 
+        I claim that $A\setminus (A\cap \overline{B}) = A\cap B$ and will show this by showing each side is a subset of the other.
+        Let $x \in A\setminus (A\cap \overline{B})$. Then $x \in A$ and $x \notin (A\cap \overline{B})$.
+        If $x \notin (A\cap \overline{B})$, then $x \in A$ and $x \notin \overline{B}$. Thus $x \in B$ and also $x \in A$.
+        Now let $x \in (A\cap B)$ then $x \in A$ and $x \in B$ so for each side $x \in A$ and $x \in B$ and they are both a subset of the other. 
+        Therefore $A\setminus (A\cap \overline{B}) = A\cap B$.
+    \item
+        I claim that $\overline{(\overline{A}\cup B)} \cap A = A\setminus B$ and will show this by showing each side is a subset of the other.
+        Let $x \in \overline{(\overline{A}\cup B)} \cap A$. Then $x \in A$ and $x \notin B$ because $x \in \overline{(\overline{A}\cup B)}$.
+        If $y \notin \overline{(\overline{A}\cup B)}$ then $y \in (A \cup \overline{B})$, thus $y \in A$ and $y \notin B$.
+        Now let $x \in A\setminus B$ then $x \in A$ and $x \notin B$ so for each side $x \in A$ and $x \notin B$ and are therefore both a subset of the other.
+        Therefore $\overline{(\overline{A}\cup B)} \cap A = A\setminus B$.
+    \item
+        I claim that $(A\cup B)\setminus A = B\setminus A$ and will show this by showing each side is a subset of the other.
+        Let $x \in (A\cup B) \setminus A$ then $x \in B$ and $x \notin A$.
+        Now let $x \in B\setminus A$ then $x \in B$ and $x \notin A$ so for each side $x \in B$ and $x \notin A$ and are therefore both a subset of the other.
+        Therefore $(A\cup B)\setminus A = B\setminus A$.
+    \item
+        I claim that $(A\cup B) \setminus B = A\setminus (A\cap B)$ and will show this by showing each side is a subset of the other.
+        Let $x \in (A\cup B) \setminus B$ then $x \in A$ and $x \notin B$.
+        Now let $x \in (A\setminus (A\cap B$ then $x \in A$ and $x \notin B$ so for each side $x \in A$ and $x \notin B$ and are therefore both a subset of the other.
+        Therefore $(A\cup B) \setminus B = A\setminus (A\cap B)$
+\end{enumerate}
+\end{proof}
+\rubric
+
+
+\clearpage
+\begin{conjecture}
+Define $f: \N\setminus\set{0}\to\Z$ as follows: for each $n\in \N\setminus \set{0}$,
+\[
+f(n) = \frac{1+(-1)^n (2n-1)}{4}.
+\]
+Then $f$ is a bijection.
+\end{conjecture}
+\begin{proof}
+\begin{enumerate}
+    \setcounter{enumi}{1}
+    \item 
+        I claim that $f$ is a bijection for when each $n\in \N\setminus \set{0}$, $f(n) = \frac{1+(-1)^n (2n-1)}{4}$, and will show this by proving $f$ is injective and surjective.
+        This means $f$ is one to one for all $x_1$ and $x_2$ in the set of $\N$, if $f(x_1) = f(x_2)$, then $x_1 = x_2$.
+        \[
+        f(x_1) = f(x_2)
+        \]
+        In the next step, we set the equations equal to each other to begin proving the $f(x_1) = f(x_2).$
+        \[
+        \frac{1+(-1)^{x_1} (2x_1-1)}{4} = \frac{1+(-1)^{x_2} (2x_2-1)}{4}
+        \]
+        \[
+        {1+(-1)^{x_1} (2x_1-1)} = {1+(-1)^{x_2} (2x_2-1)}
+        \]
+        Next we subtract $1$ from the right side which removes the $1$ out front.
+        \[
+        {(-1)^{x_1} (2x_1-1)} = {(-1)^{x_2} (2x_2-1)}
+        \]
+        We can then divide the right side by ${(-1)^{x_1}}$, realizing that because $x_1 = x_2$ then $(-1)^{x_1} = (-1)^{x_2}$.
+        \[
+        2x_1-1 = 2x_2-1
+        \]
+        \[
+        x_1 = x_2
+        \]
+        Therefore $x_1 = x_2$ so $f(n)$ is one to one, or injective.
+        To prove that this $f$ is surjective, suppose $y=0$. Then $f(1) = y$. Suppose $y>0$, then
+        \begin{align*}
+            f(2y) & = \frac{1+(-1)^{2y}(2(2y)-1)}{4}\\
+            & = \frac{1+4y-1}{4}\\
+            & = \frac{4y}{4}\\
+            & = y.
+        \end{align*}
+        We can then also suppose $y<0$. Then
+        \begin{align*}
+            f(-2y+1) & = \frac{1+(-1)^{(-2y+1)}(2(-2y+1)-1)}{4}\\
+            & = \frac{1+(-1)(-4y+2-1)}{4}\\
+            & = \frac{1+4y-1}{4}\\
+            & = \frac{4y}{4}\\
+            & = y.
+        \end{align*}
+        We see that each element of the codomain is mapped to one element of the domain when $f$ is even or odd, and thus by definition $f$ is surjective.
+        This means that the function is both surjective and injective, and therefore the function $f$ is a bijection.
+
+\end{enumerate}
+\end{proof}
+\rubric
+
+
+
+\clearpage
+
+
+\begin{example}
+For the following example, choose two of the four problems to do.Exactly one of your choices should be a combinatorial proof.
+
+\begin{enumerate}
+    \item (Combinatorial) For $n\ge 1$,
+    \[
+        \sum\limits_{k=0}^n k \binom{n}{k} = n 2^{n-1}.
+    \]
+    
+    \item We wish to improve upon the ogre's distribution of 43 cupcakes to 12 baby mice by ensuring that every baby mouse gets at least \textit{two} cupcakes. How many ways are there to accomplish this?
+\end{enumerate}
+
+\end{example}
+\begin{proof}
+\begin{enumerate}
+    \item 
+        I claim that $\sum\limits_{k=0}^n k \binom{n}{k} = n 2^{n-1}$, and will show this by proving $n 2^{n-1}$ is the sum of $\sum\limits_{k=0}^n k \binom{n}{k}$. Let $S=\sum\limits_{k=0}^n k \binom{n}{k} = \sum\limits_{k=1}^n k \binom{n}{k}$, as the sum of the first term is just zero, as anything multiplied by zero remains zero. If $S = \sum\limits_{k=1}^n k \binom{n}{k}$ then $S = \sum\limits_{k=1}^n n \binom{n-1}{k-1}$. 
+        This can be demonstrated by noticing that $\sum\limits_{k=1}^n k \binom{n}{k}$ is the number of ways to form a committee of a person $k$ out of available $n$ people and selecting one head for the selected committee. 
+        Then you notice that $\sum\limits_{k=1}^n n \binom{n-1}{k-1}$ is the number of ways to take $n$ available people and take one person and choose that person as the head of the committee. 
+        We can then define $u = k-1$ and substitute this into the sum equation which means that $S = n\sum\limits_{u=0}^{n-1} \binom{n-1}{u}$.
+        Therefore, the sum is the total number of subsets of $n-1$ elements, making $S = n 2^{n-1}$, given by Example 1.4.5 in the book, \textit{Discrete Mathematics: An Open Introduction, 3rd edition}, where $n-1$ is substituted for $n$.
+        This can further be explained by realizing that we select the head of the committee first in $n$ ways and then by removing the head of the committee from the total $n$ people using $n-1$ of the remaining people in $2^{n-1}$ ways. This $2^{n-1}$ will give us the distinct subsets of choosing the committee after we have already chosen the head of the committee, and in doing this it will give us the right side equation of $n 2^{n-1}$.
+
+    \item
+        I claim that there are 54,627,300 ways for the ogre to distribute 43 cupcakes among 12 baby mice, given each mouse receives at least two cupcakes, and will show this by showing $\binom{30}{11}$. First we define $x_i$ to be the number of cupcakes that we feed to baby mouse $i$. Given 43 cupcakes are going to 12 baby mice means we have $x_1 + x_2 +\cdots + x_{12} = 43$, as each mouse must receive cupcakes and the total will add up to 43.
+        Therefore, if each mouse is to receive at least 2 cupcakes, $x_i \ge 2$. This means that we must take $2\times12 = 24$ and subtract the least amount of cupcakes that the mice can get from the total. So $43 - 24 = 19$.
+        Therefore, there is $\binom{19+12-1}{12-1}$ or $\binom{30}{11}$ or $54,627,300$ ways to give out the cupcakes.
+
+\end{enumerate}
+\end{proof}
+\rubric
+
+
+
+\clearpage
+
+\begin{theorem}
+    Consider the recurrence relation $a_n = s a_{n-1}+d$, where $s\ne 1$.
+    Prove that
+    \[
+        a_n = \left(a_0 + \frac{d}{s-1}\right) s^n - \frac{d}{s-1}
+    \]
+    is a solution. Then use this theorem to solve for a closed formula for the recurrence $a_n = 5 a_{n-1} + 3$ where $a_0 = 1$.
+\end{theorem}
+
+\begin{proof}
+    I claim that $ a_n = \left(a_0 + \frac{d}{s-1}\right) s^n - \frac{d}{s-1}$ is a solution to the recurrence relation $a_n = s a_{n-1}+d$, where $s\ne 1$ and will prove this by using algebra.
+    I will also use this theorem to solve for a closed formula for the recurrence $a_n = 5 a_{n-1} + 3$ where $a_0 = 1$.
+    First we can take the equation,
+    \begin{equation} \label{eq.1}
+        a_n = \left(a_0 + \frac{d}{s-1}\right) s^n - \frac{d}{s-1}
+    \end{equation}
+    and substitute $a_{n-1}$ for $a_n$, where we will get this,
+    \begin{equation} \label{eq.2}
+        a_{n-1} = \left(a_0 + \frac{d}{s-1}\right) s^{n-1} - \frac{d}{s-1}.
+    \end{equation}
+    We then also realize that because each equation is equal to $a_n$ and therefore can set them equal to each other,
+    \[
+        s a_{n-1}+d = \left(a_0 + \frac{d}{s-1}\right) s^n - \frac{d}{s-1}.
+    \]
+    We then substitute in Eq. (\ref{eq.2}) on the left hand side,
+    \[
+        s a_{n-1}+d = s (\left(a_0 + \frac{d}{s-1}\right) s^{n-1} - \frac{d}{s-1}) + d.
+    \]
+    So we then have the equations,
+    \[
+        s (\left(a_0 + \frac{d}{s-1}\right) s^{n-1} - \frac{d}{s-1}) + d = \left(a_0 + \frac{d}{s-1}\right) s^n - \frac{d}{s-1}.
+    \]
+    We then distribute $s$ on the left hand side,
+    \[
+        \left(a_0 + \frac{d}{s-1}\right) s^{n} - \frac{ds}{s-1} + d  = \left(a_0 + \frac{d}{s-1}\right) s^n - \frac{d}{s-1}.
+    \]
+    Then we can simplify the left hand side and see that they are equal to each other,
+    \[
+        \left(a_0 + \frac{d}{s-1}\right) s^{n} - \frac{d}{s-1}  = \left(a_0 + \frac{d}{s-1}\right) s^n - \frac{d}{s-1}.
+    \]
+    Given this we know that,
+    \[
+        \left(a_0 + \frac{d}{s-1}\right) s^n - \frac{d}{s-1}
+    \]
+    is a solution to the recurrence relation $a_n = s a_{n-1}+d$, where $s\ne 1$.
+    We will use this theorem to solve for a closed formula by first realizing that $a_n = 5 a_{n-1} + 3$ is in the form of $a_n = s a_{n-1}+d$, so therefore we can reason that $s = 5$ and $d = 3$. We can then substitute this into Eq. (\ref{eq.1}),
+    \[
+        a_n = \left(1 + \frac{3}{5-1}\right) 5^n - \frac{3}{5-1}.
+    \]
+    Simplifying this will result in,
+    \[
+        a_n = \frac{7}{4} 5^n - \frac{3}{4}.
+    \]
+    This is the final closed form for the recurrence relation $a_n = 5 a_{n-1} + 3$ where $a_0 = 1$.
+    
+\end{proof}
+
+\rubric
+
+
+\clearpage
+
+
+\begin{conjecture}
+    For all $n\ge 1$,
+    \begin{equation} \label{eq.V1}
+        \frac{1}{1\cdot 2} + \frac{1}{2\cdot 3} + \cdots + \frac{1}{n\cdot(n+1)} = \frac{n}{n+1}
+    \end{equation}
+\end{conjecture}
+
+\begin{proof}
+(By induction.)
+Base case: When $n=1$, (\ref{eq.V1}) becomes
+\[
+    \frac{1}{1\cdot(1+1)} = \frac{1}{1+1},
+\]
+which is true.
+
+Inductive Hypothesis: Assume for some $k\ge 1$,
+\[
+     \frac{1}{1\cdot 2} + \frac{1}{2\cdot 3} + \cdots + \frac{1}{k\cdot(k+1)} = \frac{k}{k+1}.
+\]
+
+Inductive Step: We want to prove that
+\begin{align*}
+     \frac{1}{1\cdot 2} + \frac{1}{2\cdot 3} + \cdots + \frac{1}{k\cdot(k+1)} + \frac{1}{(k+1)\cdot((k+1)+1)} & = \frac{k+1}{(k+1)+1}\\
+     & = \frac{k+1}{k+2}\\
+\end{align*}
+By the inductive hypothesis,
+\begin{align*}
+    \frac{1}{1\cdot 2} + \frac{1}{2\cdot 3} + \cdots + \frac{1}{k\cdot(k+1)} + \frac{1}{(k+1)\cdot((k+1)+1)} &= \frac{k}{k+1}+\frac{1}{(k+1)(k+2)}\\
+    & =\frac{k(k+2)}{(k+1)(k+2)}+\frac{1}{(k+1)(k+2)}\\
+    & =\frac{k(k+2)+1}{(k+1)(k+2)}\\
+    & =\frac{k^2+2k+1}{(k+1)(k+2)}\\
+    & =\frac{(k+1)^2}{(k+1)(k+2)}\\
+    & =\frac{k+1}{k+2}\\
+\end{align*}
+By induction, (\ref{eq.V1}) is established for all $n\ge 1$.
+
+\end{proof}
+
+\rubric
+
+
+
+\clearpage
+
+For Theorem \ref{thm:modular-squares}, we will use the following definition.
+
+\begin{definition}
+    Let $a,b,\in\Z$ and $m\in \N$ with $m > 1$.
+    We say that $a$ is \emph{congruent to $b$ modulo $m$} if $m|(a-b)$.
+    We write $a \equiv b\mod m$.
+\end{definition}
+
+Thus, e.g., $11\equiv 3\mod 4$, since $4|11-3$, but $9\not\equiv 3\mod 4$ since $4\nmid 9-3$.
+
+\begin{theorem}\label{thm:modular-squares}
+    Suppose $a,b\in \Z$ and $m\in \N$ with $m > 1$ such that $a\equiv b\mod m$.
+    Then $a^2 \equiv b^2\mod m$.
+\end{theorem}
+
+\begin{proof}
+    (Proof by Direct Proof). Let $a \equiv b\mod m$, by definition $m|(a-b)$. We can reason that $m|(a-b)(a+b)$ if $m|(a-b)$. We can rearrange $m|(a-b)$ to get $a=mk+b$. This means that $a^2=(mk+b)^2$ which can be factored out to be $m(m+2k)+b^2=b^2\mod m$.  This also shows us that since $a-b=mk$, we get $(a-b)(a+b)=mk(a+b)$. We can also realize that $(a-b)(a+b) = a^2-b^2$. Therefore since $m|a^2-b^2$, then $a^2 \equiv b^2\mod m$.
+\end{proof}
+
+\rubric
+
+
+
+\clearpage
+
+ 
+
+\begin{conjecture}
+    If $a$, $b$, and $c$ are integers, then $ab+ac$ is even.
+\end{conjecture}
+
+\begin{proof}
+    (Proof by counterexample). Given $a,b,c \in\Z$, assume $a=1,b=2,c=3$. By multiplication and addition we can see that $1\cdot2+1\cdot3=5$, which is odd, proving the original conjecture false. What we could claim is that $ab+ac$ is even for any $a$ that is even, or only if $b$ and $c$ have the same parity.
+    This can be shown by realizing that multiplying two integers together where both are even, results in an even integer, proven in Investigation 11.3.1, problem 1.
+    If both integers are odd, then the resulting integer will be even, proven in Investigation 11.3.1, problem 3.
+    We can then prove that adding two integers $b,c$ where both are even
+    \begin{align*}
+            b + c & = 2k + 2k\\
+            & = 4k\\
+            & = 2(2k)\\
+    \end{align*}
+    which means adding two even integers results in an even integer.
+    Assume $b$ and $c$ are odd, then
+    \begin{align*}
+            b + c & = (2k+1) + (2k+1)\\
+            & = 4k+2\\
+            & = 2(2k+1)+1\\
+    \end{align*}
+    which means adding two odd integers results in an odd integer.
+    Using this, we can infer that for $ab+ac$ to be even, $a$ must be even, or only $b$ and $c$ must be even.
+    
+\end{proof}
+
+
+\rubric
+
+
+\clearpage
+
+\begin{conjecture}
+    If $r$ is any real number and $\xi$ is irrational, then $r + \xi$ is irrational or $-r + \xi$ is irrational.\footnote{You may assume without proof that the sum of two rational numbers is rational.}
+\end{conjecture}
+
+\begin{proof}
+    (Proof by contradiction). Assume $r + \xi = k$ and $-r + \xi = k$, where $k$ is irrational. 
+    We are able to rearrange the equation to be $\xi=k-r$. We can first assume that if $r$ and $k$ are rational, then $k+(-r)$ is rational as we know that the sum of two rational numbers is rational. This contradicts our statement as seen by $\xi=k+(-r)$ as $\xi$ would be rational.
+    Next we can assume that $k$ is rational which means that $r+\xi=\frac{k}{j}$ or $-r+\xi=\frac{m}{n}$, where $k,j,m,n \in \Z$. We can add these equations to get $r-r+\xi+\xi=\frac{k}{j}+\frac{m}{n}$. This can be simplified to $2\xi=\frac{kn+jm}{jn}$, which when divided by $2$ results in $\xi=\frac{kn}{2jn}$. This contradicts our statement as we see $\xi$ is being defined as a fraction, which is the definition of a rational number, thus $k$ must be irrational if $r$ is irrational. In conclusion, we see that when $r$ is rational or irrational, that $r+\xi$ or $-r+\xi$ is always irrational.
+\end{proof}
+
+\rubric
+
+
+\clearpage
+
+\begin{conjecture}
+    Every graph has at least two vertices of the same degree.
+\end{conjecture}
+
+[Hint: consider two cases--one in which your graph has a vertex of degree 0, and one in which it does not.]
+
+\begin{proof}
+    Given the definition of a graph consists of a nonempty set $V$ and a set $E$, we can consider a graph of one vertex, which contradicts the conjecture as there is only one vertex with a degree. 
+    If we are to assume that the graph is to have at least one vertex, we know that the vertices in this graph can be incident to $0$ to $n-1$ edges, which means that each vertex must have a degree from $0$ to $n-1$, which results in the set $\{0,1,...,n-1\}$.
+    For our first case, assume a graph has a vertex of degree $0$, so there are no edges incident to it. This means that it is impossible for any vertices to be of degree $n-1$.
+    We can then use the pigeonhole principle to realize that a graph with a vertex of degree $0$ or $n-1$ must have a vertex with $n-1$ degrees, or one less incident edge, and thus at least two vertices will now have the same degree.
+    If we then consider a graph where the vertices are not degree $0$ or $n-1$, we know that two elements have been removed from the set $M$, and we can use the pigeonhole principle to show that at least two vertices will have the same degree.
+    In conclusion, every graph with at least two vertices will contain at least two vertices of the same degree.
+\end{proof}
+
+\rubric
+
+
+\end{document}
